@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  tensorflow_jupyter:
+    image: tensorflow/tensorflow:latest-jupyter
+    ports:
+      - "8888:8888"
+    networks:
+      - tensorflow
+
+networks:
+  tensorflow:
+    driver: bridge
+

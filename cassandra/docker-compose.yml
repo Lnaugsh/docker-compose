@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  cassandra:
+    image: docker.io/bitnami/cassandra:4.0
+    ports:
+      - '7000:7000'
+      - '9042:9042'
+    volumes:
+      - 'cassandra:/bitnami'
+    environment:
+      - CASSANDRA_SEEDS=cassandra
+      - CASSANDRA_PASSWORD_SEEDER=yes
+      - CASSANDRA_PASSWORD=cassandra
+    networks:
+      - cassandra
+
+volumes:
+  cassandra:
+    driver: local
+
+networks:
+  cassandra:
+   driver: bridge
+
